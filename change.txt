@@ -1,0 +1,43 @@
+1. SymbolTable/Symbol
+ - 原本是用int紀錄每個型態改成用string，yacc寫起來比較好讀
+
+ - Symbol新增loadCode, storeCode存相對應的code
+	* s->loadCode = 要把s load出來的指令
+	* s->storeCode = 要把s存回去的指令
+	* 都是string的型態
+
+ - SymbolTable新增IndexCounter，拿來計local array到哪了
+	* 在symbol是在local拿來跟上面L/S指令搭配用的
+	* int IndexCounter;
+
+2. yacc
+ - 修正yyerror:
+	從原本C/C++混著寫，改成單純C++的寫法
+	使yyerror可以正常噴出錯誤訊息
+
+ - 訂正文法:
+	由於proj2的分數為0分，文法錯得太多不一一列舉
+	基本上是一些忘記補SEM、寫成C/C++格式...等等
+
+ - 針對文法的判斷新增變數:
+	a) flag: 判斷這個procedure有無成功宣告
+	b) elseBranch: 判斷有無else
+	c) branchIndex: 計算現在已經到L幾了
+	d) branchStack: stack存放L幾(存編號, int)
+
+ - 針對紀錄value:
+	int int_value = 0; 
+	float float_value = 0.0;
+	string string_value = "";  
+	bool bool_value = false;
+	並有做一個clear_val的function拿來歸零
+
+ - 針對file:
+	a) string filename, jasmName拿來處理filename
+	b) ofstream fout，存java bytecode
+	c) 有做一個filewrite的function，方便寫yacc
+	   不用一直<<endl...等等
+
+ - 產出java bytecode:
+	依照各個部分的規定把對應的bytecode送到fout
+	再output出 *.jasm

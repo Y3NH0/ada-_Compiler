@@ -1,0 +1,64 @@
+class computeFib
+{
+method public static int itFibonacci(int)
+max_stack 15
+max_locals 15
+{
+sipush 0
+istore 1
+sipush 0
+istore 2
+sipush 0
+istore 3
+sipush 1
+istore 1
+sipush 1
+istore 2
+L0:
+iload 0
+sipush 2
+isub
+ifgt L2
+iconst_0
+goto L3
+L2:
+iconst_1
+L3:
+ifeq L1
+iload 1
+istore 3
+iload 1
+iload 2
+iadd
+istore 1
+iload 3
+istore 2
+iload 0
+sipush 1
+isub
+istore 0
+goto L0
+L1:
+iload 1
+ireturn
+}
+method public static void main(java.lang.String[])
+max_stack 15
+max_locals 15
+{
+getstatic java.io.PrintStream java.lang.System.out
+ldc "N: "
+invokevirtual void java.io.PrintStream.print(java.lang.String)
+getstatic java.io.PrintStream java.lang.System.out
+sipush 8
+invokevirtual void java.io.PrintStream.print(int)
+getstatic java.io.PrintStream java.lang.System.out
+ldc "Result of iterative computation:"
+invokevirtual void java.io.PrintStream.print(java.lang.String)
+getstatic java.io.PrintStream java.lang.System.out
+sipush 8
+invokestatic int computeFib.itFibonacci(int)
+invokevirtual void java.io.PrintStream.print(int)
+return
+}
+}
