@@ -1,7 +1,8 @@
 %{
-/*---------------------------------------*/
-/*--------------- Scanner ---------------*/
-/*---------------------------------------*/
+// test
+/*--- SCANNER ---*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,29 +11,22 @@
 
 #define LIST strcat(buf, yytext)
 #define token(t) {LIST; return(t);}
-
-
 #define MAX_LINE_LENG 256
 
-int linecount = 1;
+int linecount = 1; // initialize first line count = 1
 char buf[MAX_LINE_LENG];
 
 
-/* ----- print_line -----
- * print line number & buf
- * clear buf 
- * in proj2, we dont need to print
- */
 void print_line() {
-    //printf("%d: %s\n", linecount, buf);
+    printf("%d: %s\n", linecount, buf);  // print line number and buffer
     linecount++;
-    buf[0]='\0';
+    buf[0]='\0'; // clear
 }
 
 %}
-/*------------------------------------*/
-/*-------- Regular definition --------*/
-/*------------------------------------*/
+
+/*--- Regular ---*/
+
 digs        [0-9]+
 integer     {digs}
 plain_real  {digs}"."{digs}
