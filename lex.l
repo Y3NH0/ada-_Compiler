@@ -1,5 +1,8 @@
 %{
 // test
+// author yenho
+// stuID b10615048
+// NTUSTCSIE
 /*--- SCANNER ---*/
 
 
