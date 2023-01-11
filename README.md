@@ -1,23 +1,16 @@
-# B10615048_proj3
+# ada-_Compiler
+* NTUST_1092_Compiler_Design_Project
 
-## makefile說明:
+# Usage
 
-- make
-  - 產出parser
-- make clean
- 	- 除了測試的檔案
-    刪到剩下lex.l, yacc.y, Symbol.h, Symbol.cpp
-- make test
- 	- 將test_ada資料夾裡面的所有檔案餵給parser
- 	  產出 \*.jasm
+## make file
 
-## 測試說明:
+* to generate the parser(compiler): `make`
+* clean the files besides lex.l, yacc.y, Symbol.h, Sumbol.cpp: `make clean`
+* compile all the .ada in `test_ada` to `.jasm` file: `make test`
 
-1. 產出filename.jasm
-  ./parser.exe filename.ada
+## cmd
 
-2. 產出filename.class
-  javaa/javaa filename.jasm
-
-3. 執行
-  java filename
+1. generate .jasm file: `./parser.exe filename.ada`
+2. generate .class file: `javaa/javaa filename.jasm`
+3. execute: `java filename`
