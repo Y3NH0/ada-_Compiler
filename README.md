@@ -6,7 +6,7 @@
 ## make file
 
 * to generate the parser(compiler): `make`
-* clean the files besides lex.l, yacc.y, Symbol.h, Sumbol.cpp: `make clean`
+* clean the files besides `lex.l, yacc.y, Symbol.h, Sumbol.cpp`: `make clean`
 * compile all the .ada in `test_ada` to `.jasm` file: `make test`
 
 ## cmd
